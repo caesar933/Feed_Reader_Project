@@ -59,7 +59,7 @@ $(function () {
             });
         });
 
-    //Tests if there is at least 1 entry after the loadFeed function is called
+        //Tests if there is at least 1 entry after the loadFeed function is called
 
         it('single entry element within feed container', function () {
             let entries = document.querySelector('.feed').getElementsByClassName('entry').length;
@@ -71,21 +71,21 @@ $(function () {
 
     describe('New Feed Selection', function () {
         let feedSelect;
+        let newFeedSelect;
         beforeEach(function (done) {
             loadFeed(0, function () {
-                let feedSelect = document.querySelector('.feed').innerHTML;
-            });
+                feedSelect = document.querySelector('.feed').innerHTML;
 
-            loadFeed(1, function () {
-                done();
+                loadFeed(1, function () {
+                    newFeedSelect = document.querySelector('.feed').innerHTML;
+                    done();
+                });
             });
-
         });
 
         // Tests if the content is changing when new feed is loaded
 
         it('new feed is loaded by the loadFeed function', function () {
-            let newFeedSelect = document.querySelector('.feed').innerHTML;
             expect(feedSelect).not.toBe(newFeedSelect);
         });
     });
