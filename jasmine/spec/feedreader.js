@@ -24,7 +24,7 @@ $(function () {
         it('has name defined', function () {
             allFeeds.forEach(function (tst) {
                 expect(tst.name).toBeDefined();
-                expect(tst.name).not.toBe(0);
+                expect(tst.name.length).not.toBe(0);
             });
         });
     });
